@@ -13,12 +13,12 @@ class TodoList:
 
 
     def complete(self):
-        if self.list_completed == []:
-            return self.list_completed
         for todo in self.list_todo:
             if todo.complete is True:
                 self.list_completed.append(todo)
                 return self.list_completed
+            else:
+                return []
         
             
     def give_up(self):
