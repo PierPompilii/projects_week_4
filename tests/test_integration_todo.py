@@ -31,6 +31,8 @@ def test_show_imcomplete_todo_task():
     '''
 def test_empty_completed_task():
     todo_list = TodoList()
+    todo_list.add("Walk the dog")
+    todo_list.add("Wash dishes")
     todo_list.incomplete()== ["Walk the dog", "Wash dishes"]
     assert todo_list.complete() == []
     
@@ -45,7 +47,7 @@ def test_mark_complete_one_action():
     todo_list.add (todo_1)
     todo_list.add (todo_2)
     todo_1.mark_complete()
-    assert (todo_list.complete(), [todo_1])
+    assert todo_list.complete() == [todo_1]
     
     '''
     given two task to be completed
@@ -53,12 +55,10 @@ def test_mark_complete_one_action():
     '''
 def test_too_lazy_to_finish_the_todos():
     todo_list = TodoList()
-    todo1 = Todo("Read a book")
-    todo2 = Todo("Go for a run")
-    todo_list.add(todo1)
-    todo_list.add(todo2)
-    todo_list.give_up()
-    assert (todo_list.give_up(), [todo1][todo2])
+    todo_list.add("Run")
+    todo_list.add("Eat")
+    todo_list.give_up() 
+    assert todo_list.complete() == ["Run","Eat"]
         
     
         
