@@ -17,8 +17,8 @@ class TodoList:
             if todo.complete is True:
                 self.list_completed.append(todo)
                 return self.list_completed
-            else:
-                return []
+            if self.list_completed is not True:
+                return self.list_completed
         
             
     def give_up(self):
